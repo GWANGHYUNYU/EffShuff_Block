@@ -1,3 +1,9 @@
+'''
+Made by Lee Jin, GwangHyun Yu, Dang Thanh Vu
+Initial version: 2023.01.16
+Modified version: 2023.01.23
+'''
+
 import tensorflow as tf
 import numpy as np
 from tensorflow.keras import Sequential,Model,initializers,layers,Input
@@ -48,8 +54,8 @@ if __name__ == "__main__":
     run["parameters"] = params
 
     if(params['lr_schedule'] == "ExponentialDecay"):
-        lr = tf.keras.optimizers.schedules.ExponentialDecay(params['lr'], 10000, 0.97, staircase=False, name=None)
-        # tf.keras.optimizers.schedules.ExponentialDecay(1e-3, 10000, 0.97, staircase=False, name=None)
+        lr = tf.keras.optimizers.schedules.ExponentialDecay(initial_learning_rate=params['lr'], decay_steps=10000, decay_rate=0.97, staircase=False, name=None)
+        # tf.keras.optimizers.schedules.ExponentialDecay(initial_learning_rate=1e-3, decay_steps=10000, decay_rate=0.97, staircase=False, name=None)
     elif(params['lr_schedule'] == "CosineDecayRestarts"):
         lr = tf.keras.experimental.CosineDecayRestarts(initial_learning_rate=params['lr'], first_decay_steps=10, t_mul=1, m_mul=0.9, alpha=0)
         # tf.keras.experimental.CosineDecayRestarts(initial_learning_rate=0.1, first_decay_steps=10, t_mul=1, m_mul=0.9, alpha=0)

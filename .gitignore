@@ -137,9 +137,9 @@ dataset
 # from G.H.
 # folders
 runs/
-socket_server/
 dataset/
-checkpoint
+.neptune/
+save_weights/
 
 # files
 *.png
@@ -154,21 +154,3 @@ events*
 *.data-00000-of-00001
 checkpoint
 *.index
-
-# folders
-checkpoints_every_epoch/
-model_checkpoints/
-model_checkpoints_1000/
-model_checkpoints_best/
-checkpoints_MLP_best_only/
-checkpoints_CNN_best_only/
-checkpoints_best_only/
-
-models/
-data/
-dataset/
-
-dataset/aligned
-dataset/celebA
-dataset/faces
-dataset/flowers
