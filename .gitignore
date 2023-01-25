@@ -139,6 +139,7 @@ dataset
 runs/
 dataset/
 .neptune/
+.neptune/async/
 save_weights/
 
 # files
