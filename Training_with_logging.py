@@ -110,15 +110,8 @@ if __name__ == "__main__":
     for j, metric in enumerate(eval_metrics):
         run["eval/{}".format(model.metrics_names[j])] = metric
 
-<<<<<<< HEAD
     # Calcurate Flops
     flops = get_flops(model, batch_size=params['batch_size'])
     print(f"FLOPS: {flops / 10 ** 9:.03} G")
 
     run.stop()
-=======
-    run.stop()
-
-
-    #test123
->>>>>>> 063b69967b8550852fd8337fdfebe2d99b894ec0
