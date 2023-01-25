@@ -108,3 +108,6 @@ if __name__ == "__main__":
         run["eval/{}".format(model.metrics_names[j])] = metric
 
     run.stop()
+
+
+    #test
