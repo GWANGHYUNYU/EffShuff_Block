@@ -103,8 +103,15 @@ if __name__ == "__main__":
             ])
 
     # Test
+    print("Eval model:  ", params['model_name'])
+    # Load best_save_weights
+    model.load_weights(dir_weights_save)
     eval_metrics = model.evaluate(validation_ds, verbose=0)
     for j, metric in enumerate(eval_metrics):
         run["eval/{}".format(model.metrics_names[j])] = metric
+
+    # Calcurate Flops
+    flops = get_flops(model, batch_size=params['batch_size'])
+    print(f"FLOPS: {flops / 10 ** 9:.03} G")
 
     run.stop()
