@@ -5,8 +5,9 @@ from tensorflow.keras import Sequential,Model,initializers,layers,Input
 from tensorflow.keras.utils import plot_model
 from tensorflow.keras.callbacks import ModelCheckpoint,EarlyStopping
 from sklearn.model_selection import train_test_split
+from EffShuff_Dense_Block import *
 
-class ShuffleNet_v2(Y_Dense_Block):
+class ShuffleNet_v2(EffShuff_Dense_Block):
     def __init__(self, num_classes, input_shape=(224,224,3)):
         self.num_classes=num_classes
         self.input_shape=input_shape

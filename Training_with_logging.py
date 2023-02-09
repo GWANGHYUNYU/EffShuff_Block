@@ -27,15 +27,15 @@ if __name__ == "__main__":
         )  # gender classification : Male / Female / Baby
 
     model_list=['densenet201','densenet201_scratch','resnet50','resnet50_scratch','mobilnetv2','mobilnetv2_scratch',
-                'efficientnet','efficientnet_scratch','Y_Block', 'Y_Dense_Block','shuffleNetv2']
+                'efficientnet','efficientnet_scratch','EffShuff_Block', 'EffShuff_Dense_Block','shuffleNetv2']
 
     # Hyperparameters for Function
     params = {
-            'model_name': 'efficientnet',
+            'model_name': 'EffShuff_Block',
         
             #Training
-            'opt': "SGD",
-            "lr": 1e-5,
+            'opt': "Adam",
+            "lr": 1e-4,
             "lr_schedule": None,
             "momentum": 0.9, 
             "epochs": 100, 
@@ -49,7 +49,7 @@ if __name__ == "__main__":
             
             #directory
             "dir": r'D:\Coding\DeepLearning\dataset\age_gender\gender_none',
-            'dir_weights_save': r'D:\Coding\DeepLearning\y_block\save_weights\gender_none'
+            'dir_weights_save': r'D:\Coding\EffShuff_Block\save_weights\gender_none'
            }
     run["parameters"] = params
 

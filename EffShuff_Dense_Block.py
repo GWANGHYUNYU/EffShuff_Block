@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 
 
-class Y_Dense_Block():
+class EffShuff_Dense_Block():
     def __init__(self,num_classes, input_shape=(224,224,3)):
         self.num_classes=num_classes
         self.input_shape=input_shape
@@ -23,7 +23,7 @@ class Y_Dense_Block():
 
         return x
 
-    def Y_Module(self,x,filter_size,groth_rate):
+    def EffShuff_Module(self,x,filter_size,groth_rate):
         
         x1,x2=layers.Lambda(lambda x: tf.split(x,num_or_size_splits=2,axis=3))(x)
         x1=layers.Conv2D(filters=filter_size//2+groth_rate,kernel_size=1,strides=1,padding='same',use_bias=False)(x1)
@@ -39,7 +39,7 @@ class Y_Dense_Block():
         
         return x3
 
-    def Y_Transition(self,x,filter_size):
+    def EffShuff_Transition(self,x,filter_size):
         x2=layers.Conv2D(filters=filter_size,kernel_size=1,strides=1,padding='same',use_bias=False)(x)
         x2=layers.BatchNormalization()(x2)
         x2=layers.ReLU(max_value=6)(x2)
@@ -64,23 +64,23 @@ class Y_Dense_Block():
         return x
 
 
-    def Y_Block(self, x, filter_size, groth_rate, repeat):
+    def EffShuff_Block(self, x, filter_size, groth_rate, repeat):
         x=layers.Conv2D(filters=filter_size,kernel_size=1,strides=1,padding='same')(x)
-        x = self.Y_Module(x, filter_size, groth_rate)
+        x = self.EffShuff_Module(x, filter_size, groth_rate)
         for i in range(repeat):
-            x=self.Y_Module(x=x, filter_size=x.shape[3], groth_rate=groth_rate)
+            x=self.EffShuff_Module(x=x, filter_size=x.shape[3], groth_rate=groth_rate)
         return x
 
     def forward(self):
         input=Input(shape=self.input_shape)
         x=layers.Conv2D(filters=64,kernel_size=3,strides=2,padding='same')(input)
         x=layers.MaxPool2D(pool_size=3,strides=2,padding='same')(x)
-        x=self.Y_Transition(x,92)
-        x=self.Y_Block(x,92,16,2)
-        x=self.Y_Transition(x,176)
-        x=self.Y_Block(x,176,16,6)
-        x=self.Y_Transition(x,440)
-        x=self.Y_Block(x,440,16,2)
+        x=self.EffShuffY_Transition(x,92)
+        x=self.EffShuff_Block(x,92,16,2)
+        x=self.EffShuff_Transition(x,176)
+        x=self.EffShuff_Block(x,176,16,6)
+        x=self.EffShuff_Transition(x,440)
+        x=self.EffShuff_Block(x,440,16,2)
         x=self.Classifier(x)
 
         model = tf.keras.models.Model(input,x)

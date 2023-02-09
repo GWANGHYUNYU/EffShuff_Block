@@ -5,8 +5,8 @@ from tensorflow.keras.callbacks import ModelCheckpoint
 import os
 import matplotlib.pyplot as plt
 from keras_flops import get_flops
-from Y_Dense_Block import*
-from Y_Block import *
+from EffShuff_Dense_Block import*
+from EffShuff_Block import *
 from Preprocessing import *
 from Traning_Testing import *
 from ShuffleNet_v2 import*
@@ -40,7 +40,7 @@ if __name__ == "__main__":
 
     dir=dir_butterfly
 
-    model_list=['densenet201','densenet201_scratch','resnet50','resnet50_scratch','mobilnetv2','mobilnetv2_scratch','efficientnet','efficientnet_scratch','Y_Block', 'Y_Dense_Block','shuffleNetv2']
+    model_list=['densenet201','densenet201_scratch','resnet50','resnet50_scratch','mobilnetv2','mobilnetv2_scratch','efficientnet','efficientnet_scratch','EffShuff_Block', 'EffShuff_Dense_Block','shuffleNetv2']
     
     model_current_name ='efficientnet'
 

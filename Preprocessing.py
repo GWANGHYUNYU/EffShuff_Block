@@ -6,8 +6,8 @@ from tensorflow.keras.callbacks import ModelCheckpoint
 import os
 import matplotlib.pyplot as plt
 from keras_flops import get_flops
-from Y_Dense_Block import*
-from Y_Block import *
+from EffShuff_Dense_Block import*
+from EffShuff_Block import *
 from ShuffleNet_v2 import*
 
 class Preprocessing():
@@ -82,7 +82,7 @@ class Get_Model(Model):
         num_classes         : [int] number of classes
         activation          : [str] classifier activation function of model
         '''
-        model_list=['densenet201','densenet201_scratch','resnet50','resnet50_scratch','mobilnetv2','mobilnetv2_scratch','efficientnet','efficientnet_scratch','Y_Block', 'Y_Dense_Block','shuffleNetv2']
+        model_list=['densenet201','densenet201_scratch','resnet50','resnet50_scratch','mobilnetv2','mobilnetv2_scratch','efficientnet','efficientnet_scratch','EffShuff_Block', 'EffShuff_Dense_Block','shuffleNetv2']
         if self.model_name in model_list[0:8]:
             if self.model_name==model_list[0]:
                 model=tf.keras.applications.DenseNet201(input_shape=(224,224,3), include_top=False, weights='imagenet')
@@ -107,10 +107,10 @@ class Get_Model(Model):
                             ])
         elif self.model_name in model_list[8:11]:
             if self.model_name==model_list[8]:
-                model=Y_Block(num_classes=self.num_classes).forward()
+                model=EffShuff_Block(num_classes=self.num_classes).forward()
 
             if self.model_name==model_list[9]:
-                model=Y_Dense_Block(num_classes=self.num_classes).forward()
+                model=EffShuff_Dense_Block(num_classes=self.num_classes).forward()
                 
             if self.model_name==model_list[10]:
                 model=ShuffleNet_v2(num_classes=self.num_classes).forward()
