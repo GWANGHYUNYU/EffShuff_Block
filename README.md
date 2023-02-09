@@ -29,7 +29,7 @@
 ![Gender_loss](https://user-images.githubusercontent.com/20642014/217746720-bbb039e2-5c8b-4daa-833f-8561e9d5eb8c.png)
 
 - Butterfly and moths
-![butterfly acc](https://user-images.githubusercontent.com/20642014/217746726-eba77d9f-b2ab-4adc-af92-8d9738fdfda9.png)
+![butterfly acc](https://user-images.githubusercontent.com/20642014/217753386-1c0245de-672b-41bb-acdb-29fad1c7c400.png)
 ![butterfly loss](https://user-images.githubusercontent.com/20642014/217746732-8f30b507-4fa4-47c5-a115-72d517cbd5f1.png)
 
 - NA Birds
