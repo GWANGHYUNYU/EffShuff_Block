@@ -9,6 +9,28 @@
 1. The Audience dataset is available at https://talhassner.github.io/home/projects/Adience/Adience-data.html.
 2. The Butterfly & Moths dataset is available https://www.kaggle.com/datasets/gpiosenka/butterfly-images40-species.
 3. the NABirds dataset is available at https://dl.allaboutbirds.org/nabirds.
-![그림8](https://user-images.githubusercontent.com/20642014/217741705-79c1a640-ccb7-48e2-aeb9-df4dde058df6.png)
-![그림9](https://user-images.githubusercontent.com/20642014/217741711-5fb35dda-09e5-44d6-bdce-a7f048cf9254.png)
-![그림10](https://user-images.githubusercontent.com/20642014/217741716-61a2bea7-66dd-4e6b-89d7-b0a4c18b6c4b.png)
+
+## Training
+| Task | Training Set | Val_acc | Params | Flops |
+|---|:---:|:---:|:---:|:---:|
+| `classification` | The Audience dataset(Age) | 96.37 | 1.13M | 4.85G |
+| `classification` | The Audience dataset(Gender) | 97.58 | 1.13M | 4.85G |
+| `Fine-grained classification` | Butterfly & Moths dataset | 97.70 | 1.21M | 4.85G |
+| `Fine-grained classification` | NABirds dataset | 88.26 | 1.64M | 9.70G |
+
+## Result
+- Age
+![AGE_accuracy](https://user-images.githubusercontent.com/20642014/217746693-c29b06ba-22a5-4410-80c7-ac5ca0a84b3f.png)
+![AGE_loss](https://user-images.githubusercontent.com/20642014/217746701-a69757fb-734e-4010-b8fb-f092ce9c5772.png)
+
+- Gender
+![Gender_acc](https://user-images.githubusercontent.com/20642014/217746712-a4e26940-e7d7-4e64-98ff-00ab3d809194.png)
+![Gender_loss](https://user-images.githubusercontent.com/20642014/217746720-bbb039e2-5c8b-4daa-833f-8561e9d5eb8c.png)
+
+- Butterfly and moths
+![butterfly acc](https://user-images.githubusercontent.com/20642014/217746726-eba77d9f-b2ab-4adc-af92-8d9738fdfda9.png)
+![butterfly loss](https://user-images.githubusercontent.com/20642014/217746732-8f30b507-4fa4-47c5-a115-72d517cbd5f1.png)
+
+- NA Birds
+![NA birds acc](https://user-images.githubusercontent.com/20642014/217748693-ce2b205e-f09c-4e06-bfc4-d831a49541c2.png)
+![NA birds loss](https://user-images.githubusercontent.com/20642014/217748705-927d3335-0a78-4c41-8df4-4f74371c790c.png)
