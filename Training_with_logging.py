@@ -10,8 +10,8 @@ from tensorflow.keras import Sequential,Model,initializers,layers,Input
 from tensorflow.keras.callbacks import ModelCheckpoint,EarlyStopping
 
 import os
-from Y_Dense_Block import*
-from Y_Block import *
+from EffShuff_Dense_Block import*
+from EffShuff_Block import *
 from Preprocessing import *
 
 from ShuffleNet_v2 import*
